@@ -43,13 +43,13 @@
       name: "webserver_securitygroup"
       purge_rules: yes
       rules:
-  - name: Allow_SSH
+          - name: Allow_SSH
             protocol: Tcp
             destination_port_range: 22
             access: Allow
             priority: 100
             direction: Inbound
-  - name: Allow_HTTP
+          - name: Allow_HTTP
             protocol: Tcp
             destination_port_range: 80
             access: Allow
