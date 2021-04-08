@@ -26,7 +26,7 @@
       virtual_network_name: "{{ virtual_network_name }}"
       name: "{{ subnet }}"
       address_prefix_cidr: "10.99.0.0/24"
-      - name: Create a public ip address for webserver
+  - name: Create a public ip address for webserver
     azure_rm_publicipaddress:
       resource_group: "{{ resource_group }}"
       name: public_ip_webserver
@@ -43,13 +43,13 @@
       name: "webserver_securitygroup"
       purge_rules: yes
       rules:
-          - name: Allow_SSH
+  - name: Allow_SSH
             protocol: Tcp
             destination_port_range: 22
             access: Allow
             priority: 100
             direction: Inbound
-          - name: Allow_HTTP
+  - name: Allow_HTTP
             protocol: Tcp
             destination_port_range: 80
             access: Allow
@@ -67,7 +67,7 @@
       subnet_name: "{{ subnet }}"
       security_group: "webserver_securitygroup"
       ip_configurations:
-        - name: "webserver_nic01_ipconfig"
+  - name: "webserver_nic01_ipconfig"
           public_ip_address_name: "public_ip_webserver"
           primary: True
       tags:
